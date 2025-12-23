@@ -1,20 +1,3 @@
-# app.py
-"""
-Streamlit RIASEC test app (complete).
-- All questions included
-- Uses session_state to avoid rerun/reset issues
-- Emails the results (once) using st.secrets
-- DOES NOT display scores/results on screen
-- Shows a confirmation banner after submit
-
-Secrets required in .streamlit/secrets.toml:
-EMAIL = "your_sender_email@gmail.com"
-EMAIL_PASSWORD = "your_gmail_app_password_here"
-RECEIVER = "mycareerhorizons@gmail.com"
-
-Note: For Gmail, create an App Password (recommended) and use it as EMAIL_PASSWORD.
-"""
-
 import streamlit as st
 from email.message import EmailMessage
 import smtplib
@@ -36,7 +19,7 @@ if "responses" not in st.session_state:
     st.session_state.responses = []
 
 if "scores" not in st.session_state:
-    st.session_state.scores = {"R": 0, "I": 0, "A": 0, "S": 0, "E": 0, "C": 0}
+    st.session_state.scores = {""R"": 0, "I": 0, "A": 0, "S": 0, "E": 0, "C": 0}
 
 if "info" not in st.session_state:
     st.session_state.info = {}
@@ -73,48 +56,48 @@ if not st.session_state.show_test:
 
 # ---------- Questions (all included) ----------
 questions = [
-    ("I like to work on cars", "R"),
-    ("I like to do puzzles", "I"),
-    ("I am good at working independently", "A"),
-    ("I like to work in teams", "S"),
-    ("I am an ambitious person, I set goals for myself", "E"),
-    ("I like to organize things, (files, desks/offices)", "C"),
-    ("I like to build things", "R"),
-    ("I like to read about art and music", "A"),
-    ("I like to have clear instructions to follow", "C"),
-    ("I like to try to influence or persuade people", "E"),
-    ("I like to do experiments", "I"),
-    ("I like to teach or train people", "S"),
-    ("I like trying to help people solve their problems", "S"),
-    ("I like to take care of animals", "R"),
-    ("I wouldn’t mind working 8 hours per day in an office", "C"),
-    ("I like selling things", "E"),
-    ("I enjoy creative writing", "A"),
-    ("I enjoy science", "I"),
-    ("I am quick to take on new responsibilities", "E"),
-    ("I am interested in healing people", "S"),
-    ("I enjoy trying to figure out how things work", "I"),
-    ("I like putting things together or assembling things", "R"),
-    ("I am a creative person", "A"),
-    ("I pay attention to details", "C"),
-    ("I like to do filing or typing", "C"),
-    ("I like to analyze things (problems/situations)", "I"),
-    ("I like to play instruments or sing", "A"),
-    ("I enjoy learning about other cultures", "S"),
-    ("I would like to start my own business", "E"),
-    ("I like to cook", "R"),
-    ("I like acting in plays", "A"),
-    ("I am a practical person", "R"),
-    ("I like working with numbers or charts", "I"),
-    ("I like to get into discussions about issues", "S"),
-    ("I am good at keeping records of my work", "C"),
-    ("I like to lead", "E"),
-    ("I like working outdoors", "R"),
-    ("I would like to work in an office", "C"),
-    ("I’m good at math", "I"),
-    ("I like helping people", "S"),
-    ("I like to draw", "A"),
-    ("I like to give speeches", "E"),
+    ("I like to work on cars","R"),
+    ("I like to do puzzles","I"),
+    ("I am good at working independently","A"),
+    ("I like to work in teams","S"),
+    ("I am an ambitious person, I set goals for myself","E"),
+    ("I like to organize things, (files, desks/offices)", "C"),            
+    ("I like to build things","R"),
+    ("I like to read about art and music","A"),
+    ("I like to have clear instructions to follow","C"),
+    ("I like to try to influence or persuade people","E"),
+    ("I like to do experiments","I"),
+    ("I like to teach or train people","S"),
+    ("I like trying to help people solve their problems","S"),
+    ("I like to take care of animals","R"),
+    ("I wouldn’t mind working 8 hours per day in an office","C"),
+    ("I like selling things","E"),
+    ("I enjoy creative writing","A"),
+    ("I enjoy science","I"),
+    ("I am quick to take on new responsibilities","E"),
+    ("I am interested in healing people","S"),
+    ("I enjoy trying to figure out how things work","I"),
+    ("I like putting things together or assembling things","R"),
+    ("I am a creative person","A"),
+    ("I pay attention to details","C"),
+    ("I like to do filing or typing","C"),
+    ("I like to analyze things (problems/situations)","I"),
+    ("I like to play instruments or sing","A"),
+    ("I enjoy learning about other cultures","S"),
+    ("I would like to start my own business","E"),
+    ("I like to cook","R"),
+    ("I like acting in plays","A"),
+    ("I am a practical person","R"),
+    ("I like working with numbers or charts","I"),
+    ("I like to get into discussions about issues","S"),
+    ("I am good at keeping records of my work","C"),
+    ("I like to lead","E"),
+    ("I like working outdoors","R"),
+    ("I would like to work in an office","C"),
+    ("I’m good at math","I"),
+    ("I like helping people","S"),
+    ("I like to draw","A"),
+    ("I like to give speeches","E")
 ]
 
 st.header("Answer each question (1 = least like you, 5 = most like you)")
@@ -221,8 +204,8 @@ Responses:
     # At this point, the email has been sent successfully.
     if st.session_state.email_sent:
         st.success(
-            "Tripti Chapper Careers Counselling at mycareerhorizons@gmail.com has received your results. "
-            "Please contact them to get your report."
+            "Results Have Been Sent to mycareerhorizons@gmail.com"
+            "Please contact Tripti Chapper at the Same Email to get your Detailed report."
         )
         # Optionally stop further execution so the banner remains and nothing else changes
         st.stop()
